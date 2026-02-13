@@ -1,0 +1,9 @@
+{
+  "name": "omegle-project-root",
+  "version": "1.0.0",
+  "description": "Root access for project",
+  "scripts": {
+    "start": "start_project.bat",
+    "dev": "start_project.bat"
+  }
+}

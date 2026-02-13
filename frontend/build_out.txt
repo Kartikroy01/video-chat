@@ -1,0 +1,53 @@
+
+> studentconnect-frontend@0.0.1 build
+> vite build
+
+[36mvite v4.5.14 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 20 modules transformed.
+[32m✓ built in 817ms[39m
+[31m[vite:esbuild] Transform failed with 3 errors:
+C:/Users/91825/Desktop/omegle project/frontend/src/pages/Home.jsx:5:7: ERROR: The symbol "React" has already been declared
+C:/Users/91825/Desktop/omegle project/frontend/src/pages/Home.jsx:6:9: ERROR: The symbol "Link" has already been declared
+C:/Users/91825/Desktop/omegle project/frontend/src/pages/Home.jsx:7:9: ERROR: The symbol "useAuth" has already been declared[39m
+file: [36mC:/Users/91825/Desktop/omegle project/frontend/src/pages/Home.jsx:5:7[39m
+[33m
+[33mThe symbol "React" has already been declared[33m
+3  |  import { useAuth } from "../context/AuthContext";
+4  |  
+5  |  import React from "react";
+   |         ^
+6  |  import { Link } from "react-router-dom";
+7  |  import { useAuth } from "../context/AuthContext";
+
+[33mThe symbol "Link" has already been declared[33m
+4  |  
+5  |  import React from "react";
+6  |  import { Link } from "react-router-dom";
+   |           ^
+7  |  import { useAuth } from "../context/AuthContext";
+8  |  
+
+[33mThe symbol "useAuth" has already been declared[33m
+5  |  import React from "react";
+6  |  import { Link } from "react-router-dom";
+7  |  import { useAuth } from "../context/AuthContext";
+   |           ^
+8  |  
+9  |  const Home = () => {
+[39m
+[31merror during build:
+Error: Transform failed with 3 errors:
+C:/Users/91825/Desktop/omegle project/frontend/src/pages/Home.jsx:5:7: ERROR: The symbol "React" has already been declared
+C:/Users/91825/Desktop/omegle project/frontend/src/pages/Home.jsx:6:9: ERROR: The symbol "Link" has already been declared
+C:/Users/91825/Desktop/omegle project/frontend/src/pages/Home.jsx:7:9: ERROR: The symbol "useAuth" has already been declared
+    at failureErrorWithLog (C:\Users\91825\Desktop\omegle project\frontend\node_modules\esbuild\lib\main.js:1649:15)
+    at C:\Users\91825\Desktop\omegle project\frontend\node_modules\esbuild\lib\main.js:847:29
+    at responseCallbacks.<computed> (C:\Users\91825\Desktop\omegle project\frontend\node_modules\esbuild\lib\main.js:703:9)
+    at handleIncomingPacket (C:\Users\91825\Desktop\omegle project\frontend\node_modules\esbuild\lib\main.js:762:9)
+    at Socket.readFromStdout (C:\Users\91825\Desktop\omegle project\frontend\node_modules\esbuild\lib\main.js:679:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
