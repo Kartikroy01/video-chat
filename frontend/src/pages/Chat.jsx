@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSocket } from "../context/SocketContext";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const Chat = () => {
   const { socket, onlineCount } = useSocket();
@@ -317,7 +318,7 @@ const Chat = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/chat/report",
+        `${API_URL}/api/chat/report`,
         {
           reportedUserId: otherUser.userId,
           reason: "Inappropriate Content",

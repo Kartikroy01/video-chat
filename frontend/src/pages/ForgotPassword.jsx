@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config";
 
 const ForgotPassword = () => {
   const [step, setStep] = useState("email"); // email, otp, password, success
@@ -25,7 +26,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/forgot-password",
+        `${API_URL}/api/auth/forgot-password`,
         {
           method: "POST",
           headers: {
@@ -64,7 +65,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/verify-reset-otp",
+        `${API_URL}/api/auth/verify-reset-otp`,
         {
           method: "POST",
           headers: {
@@ -113,7 +114,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/reset-password",
+        `${API_URL}/api/auth/reset-password`,
         {
           method: "POST",
           headers: {

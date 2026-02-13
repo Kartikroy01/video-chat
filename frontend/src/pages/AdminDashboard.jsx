@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { API_URL } from "../config";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -23,12 +24,12 @@ const AdminDashboard = () => {
   const fetchAdminData = async () => {
     try {
       const [statsRes, pendingRes, reportsRes, usersRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/admin/dashboard", { headers }),
-        axios.get("http://localhost:5000/api/admin/pending-approvals", {
+        axios.get(`${API_URL}/api/admin/dashboard`, { headers }),
+        axios.get(`${API_URL}/api/admin/pending-approvals`, {
           headers,
         }),
-        axios.get("http://localhost:5000/api/admin/reports", { headers }),
-        axios.get("http://localhost:5000/api/admin/all-users", { headers }),
+        axios.get(`${API_URL}/api/admin/reports`, { headers }),
+        axios.get(`${API_URL}/api/admin/all-users`, { headers }),
       ]);
 
       setStats(statsRes.data.stats);
@@ -47,7 +48,7 @@ const AdminDashboard = () => {
   const handleApproveUser = async (userId) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/admin/approve-user",
+        `${API_URL}/api/admin/approve-user`,
         { userId },
         { headers },
       );
@@ -61,7 +62,7 @@ const AdminDashboard = () => {
   const handleBanUser = async (userId) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/admin/ban-user",
+        `${API_URL}/api/admin/ban-user`,
         { userId, reason: "Admin action" },
         { headers },
       );
@@ -75,7 +76,7 @@ const AdminDashboard = () => {
   const handleResolveReport = async (reportId, status) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/admin/resolve-report",
+        `${API_URL}/api/admin/resolve-report`,
         { reportId, status, adminNotes: "Reviewed from Dashboard" },
         { headers },
       );

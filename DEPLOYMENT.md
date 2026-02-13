@@ -56,12 +56,13 @@ npm run build
 
 #### 2. Environment Variables
 
-Update API endpoints to production:
+Set the `VITE_API_URL` environment variable in your Vercel project settings:
 
-```javascript
-const API_URL = "https://api.yourdomain.com/api";
-const SOCKET_URL = "https://api.yourdomain.com";
+```bash
+VITE_API_URL=https://your-backend-url.com
 ```
+
+This will automatically be picked up by `src/config.js`.
 
 #### 3. Performance
 

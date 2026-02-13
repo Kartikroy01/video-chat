@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);
@@ -19,10 +20,10 @@ const Friends = () => {
       const header = { Authorization: `Bearer ${token}` };
 
       const [friendsRes, requestsRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/chat/friends", {
+        axios.get(`${API_URL}/api/chat/friends`, {
           headers: header,
         }),
-        axios.get("http://localhost:5000/api/chat/pending-requests", {
+        axios.get(`${API_URL}/api/chat/pending-requests`, {
           headers: header,
         }),
       ]);
@@ -41,7 +42,7 @@ const Friends = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/chat/accept-friend-request",
+        `${API_URL}/api/chat/accept-friend-request`,
         { senderId },
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -55,7 +56,7 @@ const Friends = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/chat/reject-friend-request",
+        `${API_URL}/api/chat/reject-friend-request`,
         { senderId },
         { headers: { Authorization: `Bearer ${token}` } },
       );
